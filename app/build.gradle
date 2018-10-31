@@ -11,10 +11,42 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        release {
-            minifyEnabled false
+        debug {
+            debuggable true
+            zipAlignEnabled true
+            minifyEnabled false //是否混淆
+//            shrinkResources true //是否去除无效的资源文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        //AS 3.0.1后，如果使用shrinkResources来移除未引用资源，
+        // 必须要先开启混淆minifyEnabled，才能通过资源压缩器将它们移除，否则编译会报错。
+        release {
+            zipAlignEnabled true
+            debuggable true
+            minifyEnabled false //是否混淆
+//            shrinkResources true //是否去除无效的资源文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    allprojects {
+        repositories {
+            google()// 或者 mavenCentral()
+            jcenter()
+            maven { url "http://jitpack.io" }
+            maven { url "http://maven.google.com" }
+
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    //用于多版本控制，如果没有多版本直接code就行
+    flavorDimensions "code"
+    //用来关闭AS图片PNG合法性检查的，直接不让它检查。
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
     }
 }
 
@@ -25,4 +57,29 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //黄油刀
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.githang:status-bar-compat:0.5.3'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    //打印log框架
+    implementation 'com.orhanobut:logger:2.1.1'
+    //数据存储
+    implementation 'com.orhanobut:hawk:2.0.1'
+    //retrofit2+okhttp(联网框架)
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex:rxjava:1.1.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    /*spring view 刷新*/
+    implementation 'com.liaoinstan.springview:library:1.2.6'
+
+    // 因为内含 res 文件, 使用 aar 方式调用，查看wan android api
+    implementation 'com.github.afkT:DevUtils:1.0.6@aar'
 }
