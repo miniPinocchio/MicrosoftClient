@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.microsoft.ui.fragment.BlankFragment">
+
+    <include
+        layout="@layout/layout_title_bar"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/dianzan"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_douyin_focus_top"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_douyin_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

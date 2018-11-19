@@ -2,4 +2,9 @@
     <string name="app_name">MicrosoftClient</string>
     <string name="dy_ks">抖音 快手</string>
     <string name="dy_attention_task">抖音关注任务</string>
+    <string name="top_bar_title">标题</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dianzan">点赞任务</string>
 </resources>

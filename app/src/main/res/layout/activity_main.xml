@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_white"
-    tools:context=".MainActivity">
+    tools:context="com.microsoft.ui.activity.MainActivity">
 
     <include
         android:id="@+id/ic_title_name"
-        layout="@layout/layout_title_name"/>
+        layout="@layout/layout_title_bar"/>
 
     <ImageView
         android:id="@+id/iv_dy_tsk"
