@@ -8,4 +8,42 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="register_edit">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:background">@color/truns</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+
+    <style name="register_line">
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+
+    <style name="normal_red_btn">
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:background">@drawable/cornor_red_btn</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <style name="normal_btn">
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@drawable/normal_button_color_sel</item>
+        <item name="android:background">@drawable/corner_btn</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
 </resources>

@@ -1,14 +1,19 @@
 package com.microsoft.base;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.microsoft.microsoftclient.R;
 
+/**
+ * @author huiliu
+ */
 public class BaseActivity extends AppCompatActivity {
 
     @Override
@@ -17,15 +22,24 @@ public class BaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_base);
     }
 
-    public void initTopBar(final Activity activity,String title_name){
-        ImageView iv_title_arrow = (ImageView)activity.findViewById(R.id.iv_title_arrow);
-        TextView tv_title_name=(TextView) activity.findViewById(R.id.tv_title_name);
-        iv_title_arrow.setOnClickListener(new View.OnClickListener() {
+    public void initTopBar(final Activity activity,String titleName){
+        ImageView ivTitleArrow = (ImageView)activity.findViewById(R.id.iv_title_arrow);
+        TextView tvTitleName=(TextView) activity.findViewById(R.id.tv_title_name);
+        ivTitleArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        tv_title_name.setText(title_name);
+        tvTitleName.setText(titleName);
+    }
+
+    public void showToast(String text){
+        Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT).show();
+    }
+
+    public void startAct(Class activity){
+        Intent intent = new Intent(this,activity);
+        startActivity(intent);
     }
 }

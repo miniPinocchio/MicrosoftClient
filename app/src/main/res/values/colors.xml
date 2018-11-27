@@ -3,6 +3,18 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#303e9f</color>
     <color name="colorAccent">#D81B60</color>
+
+
     <color name="color_pearl_blue">#4965f7</color>
     <color name="color_white">#ffffff</color>
+    <color name="aluminum">#9B9B9B</color>
+    <color name="mine_shaft">#323334</color>
+    <color name="fire_engine_red_dark">#9b0114</color>
+    <color name="fire_engine_red_light">#d36b77</color>
+    <color name="red_d0021b">#D0021B</color>
+    <color name="truns">#00000000</color>
+
+    <color name="login_btn_bg">#10f2f2f2</color>
+    <color name="white_b_unable">#88ffffff</color>
+    <color name="white_b_enable">#ccffffff</color>
 </resources>

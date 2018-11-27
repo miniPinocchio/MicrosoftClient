@@ -83,4 +83,6 @@ dependencies {
 
     // 因为内含 res 文件, 使用 aar 方式调用，查看wan android api
     implementation 'com.github.afkT:DevUtils:1.0.6@aar'
+
+    implementation 'com.keyboard3:LableView:1.1.1'
 }

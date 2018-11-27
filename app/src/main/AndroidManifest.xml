@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name="com.microsoft.WdApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,18 +15,22 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="com.microsoft.ui.activity.MainActivity">
+        </activity>
+        <activity android:name="com.microsoft.base.BaseActivity"/>
+        <activity android:name="com.microsoft.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.microsoft.base.BaseActivity"/>
-        <activity android:name="com.microsoft.ui.activity.SplashActivity">
-        </activity>
         <activity android:name="com.microsoft.ui.activity.RegisterActivity">
         </activity>
         <activity android:name="com.microsoft.ui.activity.DyTaskActivity">
+        </activity>
+        <activity android:name="com.microsoft.ui.activity.KsTaskActivity">
+        </activity>
+        <activity android:name="com.microsoft.ui.activity.LoginActivity">
         </activity>
     </application>
 
