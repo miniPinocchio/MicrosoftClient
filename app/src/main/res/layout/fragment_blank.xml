@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/dianzan"
         android:scaleType="fitXY"
-        android:src="@drawable/img_douyin_focus_top"/>
+        android:src="@drawable/img_dy_item_head"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_douyin_list"

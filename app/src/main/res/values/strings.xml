@@ -11,4 +11,18 @@
     <string name="input_code">请输入验证码</string>
     <string name="send_code">发送验证码</string>
     <string name="register">注册</string>
+    <string name="network_failure">网络异常，获取数据失败</string>
+
+
+    <string name="please_waite_to_refresh">正在加载，请稍后&#8230;</string>
+    <string name="refresh_failed">加载失败，请点击重试</string>
+    <string name="data_loaded">数据已全部加载</string>
+    <string name="no_data">暂时没有数据</string>
+    <string name="cancel">取消</string>
+    <string name="sure">确定</string>
+    <string name="text_focus_douyin">你的抖音号(非任务内关注号)</string>
+    <string name="task_commit">任务提交</string>
+    <string name="my_capture">"我"的截图</string>
+    <string name="click_select_image">点击选择图片</string>
+    <string name="focus_image">关注截图</string>
 </resources>

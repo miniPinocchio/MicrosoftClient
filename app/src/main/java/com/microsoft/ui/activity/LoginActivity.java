@@ -13,7 +13,12 @@ import android.widget.TextView;
 
 import com.microsoft.WdApp;
 import com.microsoft.base.BaseActivity;
+import com.microsoft.bean.LoginBean;
+import com.microsoft.bean.LoginRootBean;
+import com.microsoft.constant.Constant;
 import com.microsoft.microsoftclient.R;
+import com.microsoft.util.GsonUtil;
+import com.microsoft.util.SharePreferenceManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -100,7 +105,7 @@ public class LoginActivity extends BaseActivity implements Callback<String> {
 
     }
 
-    @OnClick({R.id.delete_usn, R.id.delete_psd, R.id.login_btn})
+    @OnClick({R.id.delete_usn, R.id.delete_psd, R.id.login_btn, R.id.forget_tv})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.delete_usn:
@@ -112,6 +117,8 @@ public class LoginActivity extends BaseActivity implements Callback<String> {
             case R.id.login_btn:
                 toLogin();
                 break;
+            case R.id.forget_tv:
+                startAct(RegisterActivity.class);
             default:
                 break;
         }
@@ -123,12 +130,12 @@ public class LoginActivity extends BaseActivity implements Callback<String> {
     private void toLogin() {
         String username = mUsernameEt.getText().toString();
         String password = mPasswordEt.getText().toString();
-        if (!TextUtils.isEmpty(username)) {
+        if (TextUtils.isEmpty(username)) {
             showToast("账号未填写");
             return;
         }
 
-        if (!TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(password)) {
             showToast("密码未填写");
             return;
         }
@@ -139,19 +146,30 @@ public class LoginActivity extends BaseActivity implements Callback<String> {
 
     @Override
     public void onResponse(Call<String> call, Response<String> response) {
-        String data = response.body();
+        String body = response.body();
         if (response.isSuccessful()) {
-            resolveData(data);
+            resolveData(body);
         }
     }
 
 
     @Override
     public void onFailure(Call<String> call, Throwable t) {
-        showToast("网络异常，获取数据失败");
+        showToast(getString(R.string.network_failure));
     }
 
-    private void resolveData(String data) {
-
+    private void resolveData(String body) {
+        if (body != null) {
+            LoginRootBean loginRootBean = GsonUtil.parseJsonWithGson(body, LoginRootBean.class);
+            if (Constant.NET_STATUS.equals(loginRootBean.getCode())) {
+                LoginBean app_user = loginRootBean.getApp_user();
+                String userJson = GsonUtil.parseBeanWithJson(app_user);
+                SharePreferenceManager.getInstance().saveInfoToSp(Constant.SP_USER_INFO, userJson);
+                startAct(MainActivity.class);
+                finish();
+            } else {
+                showToast(loginRootBean.getMsg());
+            }
+        }
     }
 }

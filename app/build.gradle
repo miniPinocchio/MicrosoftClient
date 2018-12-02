@@ -48,6 +48,19 @@ android {
         cruncherEnabled = false
         useNewCruncher = false
     }
+
+//    More than one file was found with OS independent path 'META-INF/rxjava.properties'
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/rxjava.properties'
+    }
 }
 
 dependencies {
@@ -64,13 +77,13 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.githang:status-bar-compat:0.5.3'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
-    //打印log框架
+    //打印log框架neti
     implementation 'com.orhanobut:logger:2.1.1'
     //数据存储
     implementation 'com.orhanobut:hawk:2.0.1'
     //retrofit2+okhttp(联网框架)
-    implementation 'io.reactivex:rxandroid:1.2.1'
-    implementation 'io.reactivex:rxjava:1.1.6'
+//    implementation 'io.reactivex:rxandroid:1.2.1'
+//    implementation 'io.reactivex:rxjava:1.1.6'
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
@@ -85,4 +98,8 @@ dependencies {
     implementation 'com.github.afkT:DevUtils:1.0.6@aar'
 
     implementation 'com.keyboard3:LableView:1.1.1'
+    implementation 'cn.bingoogolapple:bga-refreshlayout:1.1.7@aar'
+    implementation 'com.github.donkingliang:ImageSelector:1.4.0'
+    //图片压缩
+    implementation 'id.zelory:compressor:2.1.0'
 }

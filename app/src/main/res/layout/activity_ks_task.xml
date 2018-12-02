@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.microsoft.ui.activity.KsTaskActivity">
+    android:orientation="vertical"
+    tools:context="com.microsoft.ui.activity.DyTaskActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include
+        layout="@layout/layout_title_bar"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/dianzan"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_ks_item_head"/>
+
+    <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+        android:id="@+id/bga_ks_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_ks_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_line_back"/>
+    </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+
+</LinearLayout>

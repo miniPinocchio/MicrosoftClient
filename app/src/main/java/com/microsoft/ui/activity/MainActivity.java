@@ -13,6 +13,7 @@ import butterknife.OnClick;
 
 /**
  * 首页
+ *
  * @author huiliu
  */
 public class MainActivity extends BaseActivity {
@@ -34,12 +35,13 @@ public class MainActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_dy_tsk://抖音投票点赞任务
-
+                startAct(DyTaskActivity.class);
                 break;
             case R.id.iv_ks_tsk://快手投票点赞任务
+                startAct(KsTaskActivity.class);
                 break;
-                default:
-                    break;
+            default:
+                break;
         }
     }
 }

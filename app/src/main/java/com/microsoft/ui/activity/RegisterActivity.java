@@ -9,21 +9,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.microsoft.WdApp;
 import com.microsoft.base.BaseActivity;
-import com.microsoft.constant.MainConstant;
+import com.microsoft.bean.MobileCode;
+import com.microsoft.constant.Constant;
 import com.microsoft.microsoftclient.R;
+import com.microsoft.util.GsonUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * 注册
  *
  * @author huiliu
  */
-public class RegisterActivity extends BaseActivity {
+public class RegisterActivity extends BaseActivity implements Callback<String> {
 
     @BindView(R.id.username_et)
     EditText mUsernameEt;
@@ -39,15 +46,11 @@ public class RegisterActivity extends BaseActivity {
     Button mBtnAuthCode;
     @BindView(R.id.register)
     Button mRegister;
+    @BindView(R.id.tv_title_name)
+    TextView mTvTitleName;
+    private int mNetType;
 
-    /**
-     * 倒计时
-     */
-    private void mBtnAuthCodeCountDown() {
-        handler.sendEmptyMessage(0);
-    }
-
-    private int timeCountdown = MainConstant.JUDGE_CODE_TIME;
+    private int timeCountdown = Constant.JUDGE_CODE_TIME;
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
 
@@ -56,7 +59,7 @@ public class RegisterActivity extends BaseActivity {
             super.handleMessage(msg);
             timeCountdown--;
             if (timeCountdown < 0) {
-                timeCountdown = MainConstant.JUDGE_CODE_TIME;
+                timeCountdown = Constant.JUDGE_CODE_TIME;
                 mBtnAuthCode.setClickable(true);
                 mBtnAuthCode.setText("发送验证码");
                 mBtnAuthCode.setBackgroundResource(R.drawable.tob_cornor_btn);
@@ -71,38 +74,115 @@ public class RegisterActivity extends BaseActivity {
 
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_regist);
+        setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
+        mTvTitleName.setText("注册");
     }
+
+
+    /**
+     * 倒计时
+     */
+    private void mBtnAuthCodeCountDown() {
+        handler.sendEmptyMessage(0);
+    }
+
 
     @OnClick({R.id.delete_usn, R.id.delete_psd, R.id.btn_auth_code, R.id.register})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.delete_usn:
+
                 break;
             case R.id.delete_psd:
+
                 break;
             case R.id.btn_auth_code:
+                mBtnAuthCodeCountDown();
+                sendCode();
                 break;
             case R.id.register:
+                toRegister();
                 break;
-                default:break;
+            default:
+                break;
         }
+    }
+
+    private void toRegister() {
+        String username = mUsernameEt.getEditableText().toString();
+        if (TextUtils.isEmpty(username)) {
+            showToast("请输入手机号码");
+            mRegister.setEnabled(true);
+            mRegister.setText("注册");
+            return;
+        }
+        String password = mPasswordEt.getEditableText().toString();
+        if (TextUtils.isEmpty(password) || password.length() > 16 || password.length() < 6) {
+            showToast("请输入6-16位密码");
+            mRegister.setEnabled(true);
+            mRegister.setText("注册");
+            return;
+        }
+        String code = mCodeEt.getEditableText().toString();
+        if (TextUtils.isEmpty(code)) {
+            showToast("请输入验证码");
+            mRegister.setEnabled(true);
+            mRegister.setText("注册");
+            return;
+        }
+        mNetType = 2;
+        WdApp.getRetrofit().takeRegister(username, password, code).enqueue(this);
     }
 
     /**
      * 获取服务器返回的验证码，用作本地校验
      */
     private void sendCode() {
+        mNetType = 1;
         String username = mUsernameEt.getEditableText().toString();
         if (TextUtils.isEmpty(username.trim())) {
             showToast("请输入手机号码");
+            return;
+        }
+        WdApp.getRetrofit().takeMobileCode(username).enqueue(this);
+    }
+
+
+    @Override
+    public void onResponse(Call<String> call, Response<String> response) {
+        String body = response.body();
+        if (response.isSuccessful()) {
+            resolveData(body);
         }
     }
 
-    
+    private void resolveData(String body) {
+        if (body != null) {
+            if (mNetType == 1) {
+                MobileCode mobileCode = GsonUtil.parseJsonWithGson(body, MobileCode.class);
+                if (Constant.NET_STATUS.equals(mobileCode.getCode())) {
+                    showToast(mobileCode.getMsg());
+                }else {
+                    showToast(mobileCode.getMsg());
+                }
+            } else if (mNetType == 2) {
+                MobileCode mobileCode = GsonUtil.parseJsonWithGson(body, MobileCode.class);
+                if (Constant.NET_STATUS.equals(mobileCode.getCode())) {
+                    showToast(mobileCode.getMsg());
+                    startAct(MainActivity.class);
+                }else {
+                    showToast(mobileCode.getMsg());
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onFailure(Call<String> call, Throwable t) {
+        showToast(getString(R.string.network_failure));
+    }
 }

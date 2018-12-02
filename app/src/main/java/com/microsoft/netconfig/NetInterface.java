@@ -1,15 +1,21 @@
 package com.microsoft.netconfig;
 
 
+import java.util.List;
 import java.util.Map;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Path;
 
 /**
@@ -85,7 +91,7 @@ public interface NetInterface {
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/answerTask")
+    @POST("iwapb/answerTask")
     Call<String> takeTask(@Field("userId") String userId,
                           @Field("tskId") String tskId);
 
@@ -96,7 +102,7 @@ public interface NetInterface {
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/dyList")
+    @POST("iwapb/dyList")
     Call<String> takeDyTask(@Field("id") String id);
 
     /**
@@ -106,7 +112,7 @@ public interface NetInterface {
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/answerTask")
+    @POST("iwapb/ksList")
     Call<String> takeKsTask(@Field("id") String id);
 
     /**
@@ -116,7 +122,7 @@ public interface NetInterface {
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/earning")
+    @POST("iwapb/earning")
     Call<String> takeEarning(@Field("id") String id);
 
     /**
@@ -126,59 +132,76 @@ public interface NetInterface {
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/getCode")
+    @POST("iwapb/getCode")
     Call<String> takeMobileCode(@Field("mobile") String mobile);
 
     /**
      * 登陆
+     *
      * @param mobile
      * @param password
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/login")
+    @POST("iwapb/login")
     Call<String> takeLogin(@Field("mobile") String mobile,
                            @Field("password") String password);
 
     /**
      * 注册
-     * @param id
+     *
+     * @param mobile
      * @param password
      * @param code
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/register")
-    Call<String> takeRegister(@Field("id") String id,
-                                @Field("password") String password,
-                                @Field("code") String code);
+    @POST("iwapb/register")
+    Call<String> takeRegister(@Field("mobile") String mobile,
+                              @Field("password") String password,
+                              @Field("code") String code);
+
+    //TODO  图片 与 参数 混传
 
     /**
-     * 获取验证码
+     * 提交任务
      *
      * @param id
      * @return
      */
-    //TODO  图片 与 参数 混传
-    @FormUrlEncoded
-    @POST("/iwapb/task/commit")
-    Call<String> takeMobileCode(@Field("id") String id,
-                                @Field("taskId")String taskId);
+    @Multipart
+    @POST("iwapb/task/commit")
+    Call<String> takeCommiteTask(@Part("id") String id,
+                                 @Part("taskId") String taskId,
+                                 @PartMap Map<String, RequestBody> image1);
 
+    /**
+     * 提交任务
+     *
+     * @param id
+     * @return
+     */
+    @Multipart
+    @POST("iwapb/task/commit")
+    Call<String> takeCommiteTask1(@Part("id") String id,
+                                  @Part("taskId") String taskId,
+                                  @Part() List<MultipartBody.Part> parts);
 
     /**
      * 任务详情
+     *
      * @param taskId
      * @param userId
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/task/detail")
+    @POST("iwapb/task/detail")
     Call<String> takeTaskDetail(@Field("taskId") String taskId,
-                              @Field("userId") String userId);
+                                @Field("userId") String userId);
 
     /**
      * 我的任务列表
+     *
      * @param id
      * @param type
      * @param page
@@ -186,19 +209,20 @@ public interface NetInterface {
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/task/myTask")
+    @POST("iwapb/task/myTask")
     Call<String> takeMyTask(@Field("id") String id,
-                              @Field("type") String type,
-                              @Field("page") String page,
-                              @Field("size")String size);
+                            @Field("type") String type,
+                            @Field("page") String page,
+                            @Field("size") String size);
 
     /**
      * app版本号
+     *
      * @param versionCode
      * @return
      */
     @FormUrlEncoded
-    @POST("/iwapb/upgradeApp")
+    @POST("iwapb/upgradeApp")
     Call<String> checkVersion(@Field("versionCode") String versionCode);
 
 }

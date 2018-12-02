@@ -67,7 +67,7 @@
                 android:singleLine="true"
                 android:maxLength="11"
                 android:textColor="@color/mine_shaft"
-                android:textSize="@dimen/dimens_sp_14"/>
+                android:textSize="@dimen/dimens_sp_16"/>
 
             <ImageView
                 android:id="@+id/delete_usn"
@@ -131,7 +131,7 @@
             android:layout_gravity="end"
             android:layout_marginEnd="40dp"
             android:layout_marginTop="10dp"
-            android:text="忘记密码"
+            android:text="注册"
             android:textColor="@color/mine_shaft"
             android:textSize="15dp"/>
 
@@ -157,7 +157,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="xxxxx电子商务有限公司"/>
+                />
         </LinearLayout>
 
         <Space

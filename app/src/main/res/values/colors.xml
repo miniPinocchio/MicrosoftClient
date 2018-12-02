@@ -12,9 +12,16 @@
     <color name="fire_engine_red_dark">#9b0114</color>
     <color name="fire_engine_red_light">#d36b77</color>
     <color name="red_d0021b">#D0021B</color>
-    <color name="truns">#00000000</color>
+    <color name="truns">#c2bfbf</color>
 
     <color name="login_btn_bg">#10f2f2f2</color>
     <color name="white_b_unable">#88ffffff</color>
     <color name="white_b_enable">#ccffffff</color>
+    <color name="color_line_back">#e5e5e5</color>
+    <color name="blue_join">#30C08B</color>
+    <color name="red_reward">#CE5F64</color>
+    <color name="jasper">#DB3A3A</color>
+
+    <color name="stack">#8A8A8A</color>
+    <color name="sunglow">#F9CC35</color>
 </resources>

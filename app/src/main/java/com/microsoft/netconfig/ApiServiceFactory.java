@@ -12,9 +12,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  * @date 16/8/18
  */
 public final class ApiServiceFactory {
-    public static final String HOST = "http://47.105.70.8/CustomerFeed/";//服务器地址
-    public static final String BASE_URL = HOST + "/dcojp-api/";
-    public static final String BASE_IMG_URL = "http://";
+    private static final String HOST = "http://47.105.70.8/CustomerFeed/";//服务器地址
+//    private static final String HOST = "http://20.130.1.21:8080/msgpush-api/";//服务器地址
 
     private final NetInterface mApiService;
 

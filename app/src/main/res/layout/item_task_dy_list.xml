@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_item_dy_task"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    >
+
+    <ImageView
+        android:id="@+id/iv_dy_head"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="@dimen/size_10_dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_item_dy"/>
+
+
+    <TextView
+        android:id="@+id/tv_dy_task_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginTop="@dimen/size_10_dp"
+        android:layout_toRightOf="@id/iv_dy_head"
+        android:text="关注抖音1534562535"
+        android:textSize="@dimen/size_18_sp"
+        android:textStyle="bold"/>
+
+
+    <LinearLayout
+        android:id="@+id/ll_dy_join_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_dy_task_name"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginTop="@dimen/size_10_dp"
+        android:layout_toRightOf="@id/iv_dy_head"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="参与人数:"
+            android:textSize="@dimen/size_12_sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_dy_join_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="111"
+            android:textColor="@color/blue_join"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_dy_join_person"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginTop="@dimen/size_10_dp"
+        android:layout_toRightOf="@id/iv_dy_head"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="每人奖励:"
+            android:textSize="@dimen/size_12_sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_dy_task_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/jifen"
+            android:drawablePadding="@dimen/size_2_dp"
+            android:text="500"
+            android:textColor="@color/red_reward"/>
+
+        <TextView
+            android:id="@+id/tv_dy_task_rmb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(约0.5元人民币)"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/size_2_dp"
+        android:background="@drawable/shape_bg_get_task"
+        android:scaleType="fitXY"
+        android:src="@drawable/iv_item_get_task"/>
+
+</RelativeLayout>

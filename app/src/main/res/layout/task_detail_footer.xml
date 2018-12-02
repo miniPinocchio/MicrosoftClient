@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/size_10_dp"
+        android:text="@string/task_commit"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_20_dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_focus_douyin"/>
+
+        <EditText
+            android:id="@+id/et_input_number_douyin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:background="@drawable/shape_bg_input"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_20_dp"
+        android:layout_marginRight="@dimen/size_20_dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/focus_image"/>
+
+        <TextView
+            android:id="@+id/tv_select_image1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg_input"
+            android:maxLines="1"
+            android:padding="@dimen/size_5_dp"
+            android:text="@string/click_select_image"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_20_dp"
+        android:layout_marginTop="@dimen/size_20_dp"
+        android:layout_marginRight="@dimen/size_20_dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/my_capture"/>
+
+        <TextView
+            android:id="@+id/tv_select_image2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:background="@drawable/shape_bg_input"
+            android:padding="@dimen/size_5_dp"
+            android:text="@string/click_select_image"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

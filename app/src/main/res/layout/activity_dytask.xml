@@ -16,11 +16,18 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/dianzan"
         android:scaleType="fitXY"
-        android:src="@drawable/img_douyin_focus_top"/>
+        android:src="@drawable/img_dy_item_head"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_douyin_list"
+    <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+        android:id="@+id/bga_douyin_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_douyin_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_line_back"/>
+    </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
 
 </LinearLayout>
