@@ -57,7 +57,7 @@ public class DyTaskActivity extends BaseActivity implements Callback<String>, Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dytask);
         ButterKnife.bind(this);
-        mTvTitleName.setText("抖音任务");
+        initTopBar(this, "任务", true);
         LoginBean userInfo = UserService.getUserInfo();
         if (userInfo != null) {
             mId = userInfo.getId();

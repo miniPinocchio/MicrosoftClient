@@ -1,6 +1,5 @@
 package com.microsoft.ui.fragment;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,21 +9,24 @@ import android.view.ViewGroup;
 import com.microsoft.microsoftclient.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * @author huiliu
  */
-public class BlankFragment extends Fragment {
+public class MineFragment extends Fragment {
 
-
-    public BlankFragment() {
+    public MineFragment() {
         // Required empty public constructor
     }
 
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank, container, false);
+        return inflater.inflate(R.layout.fragment_mine, container, false);
     }
-
 }

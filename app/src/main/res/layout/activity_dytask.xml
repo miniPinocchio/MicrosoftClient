@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/dianzan"
         android:scaleType="fitXY"
-        android:src="@drawable/img_dy_item_head"/>
+        android:src="@drawable/img_dy_task_head"/>
 
     <cn.bingoogolapple.refreshlayout.BGARefreshLayout
         android:id="@+id/bga_douyin_list"

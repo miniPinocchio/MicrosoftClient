@@ -102,4 +102,5 @@ dependencies {
     implementation 'com.github.donkingliang:ImageSelector:1.4.0'
     //图片压缩
     implementation 'id.zelory:compressor:2.1.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }

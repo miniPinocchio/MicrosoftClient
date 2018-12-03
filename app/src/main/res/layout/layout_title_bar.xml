@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/size_48_dp"
     android:orientation="horizontal"
-    android:background="@color/color_pearl_blue">
+    android:background="@color/sunglow">
 
    <ImageView
        android:id="@+id/iv_title_arrow"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:src="@drawable/icon_back"
+       android:layout_height="match_parent"
+       android:src="@drawable/icon_back_font"
        android:layout_centerVertical="true"
-       android:layout_marginLeft="@dimen/size_10_dp"
+       android:padding="@dimen/size_10_dp"
+       android:layout_marginLeft="@dimen/size_5_dp"
        />
 
     <TextView
@@ -21,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/top_bar_title"
         android:layout_centerInParent="true"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         android:textSize="@dimen/size_22_sp"
        />
 

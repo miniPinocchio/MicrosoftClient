@@ -83,7 +83,7 @@ public class TaskDetailActivity extends BaseActivity implements Callback<String>
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
         ButterKnife.bind(this);
-        initTopBar(this,"影音任务详情");
+        initTopBar(this, "影音任务详情", true);
         mUserInfo = UserService.getUserInfo();
         mUserId = mUserInfo.getId();
         Intent intent = getIntent();
@@ -233,14 +233,15 @@ public class TaskDetailActivity extends BaseActivity implements Callback<String>
                 } else {
                     showToast(detailRootBean.getMsg());
                 }
-            }
-        } else if (mNetType == IMAGE_TAG_SECOND) {
-            RootBean rootBean = GsonUtil.parseJsonWithGson(body, RootBean.class);
-            if (Constant.NET_STATUS.equals(rootBean.getCode())) {
-                showToast(rootBean.getMsg());
-                finish();
-            } else {
-                showToast(rootBean.getMsg());
+
+            } else if (mNetType == IMAGE_TAG_SECOND) {
+                RootBean rootBean = GsonUtil.parseJsonWithGson(body, RootBean.class);
+                if (Constant.NET_STATUS.equals(rootBean.getCode())) {
+                    showToast(rootBean.getMsg());
+                    finish();
+                } else {
+                    showToast(rootBean.getMsg());
+                }
             }
         }
     }

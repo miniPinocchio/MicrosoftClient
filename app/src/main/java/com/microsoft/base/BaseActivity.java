@@ -22,9 +22,18 @@ public class BaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_base);
     }
 
-    public void initTopBar(final Activity activity,String titleName){
-        ImageView ivTitleArrow = (ImageView)activity.findViewById(R.id.iv_title_arrow);
-        TextView tvTitleName=(TextView) activity.findViewById(R.id.tv_title_name);
+    /**
+     *
+     * @param activity
+     * @param titleName 标题
+     * @param show  true 显示返回箭头
+     */
+    public void initTopBar(final Activity activity, String titleName, boolean show) {
+        ImageView ivTitleArrow = (ImageView) activity.findViewById(R.id.iv_title_arrow);
+        if (!show){
+            ivTitleArrow.setVisibility(View.GONE);
+        }
+        TextView tvTitleName = (TextView) activity.findViewById(R.id.tv_title_name);
         ivTitleArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,12 +43,12 @@ public class BaseActivity extends AppCompatActivity {
         tvTitleName.setText(titleName);
     }
 
-    public void showToast(String text){
-        Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT).show();
+    public void showToast(String text) {
+        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
     }
 
-    public void startAct(Class activity){
-        Intent intent = new Intent(this,activity);
+    public void startAct(Class activity) {
+        Intent intent = new Intent(this, activity);
         startActivity(intent);
     }
 }

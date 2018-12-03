@@ -57,7 +57,7 @@ public class KsTaskActivity extends BaseActivity implements BGARefreshLayout.BGA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ks_task);
         ButterKnife.bind(this);
-        mTvTitleName.setText("快手任务");
+        initTopBar(this, "快手任务", true);
         LoginBean userInfo = UserService.getUserInfo();
         if (userInfo != null) {
             mId = userInfo.getId();

@@ -25,4 +25,11 @@
     <string name="my_capture">"我"的截图</string>
     <string name="click_select_image">点击选择图片</string>
     <string name="focus_image">关注截图</string>
+
+    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="txt_user_name">三军不可夺帅</string>
+    <string name="string_my_earning">我的财产</string>
+    <string name="string_scan_code">二维码</string>
+    <string name="earning">赚钱</string>
+    <string name="mine">我的</string>
 </resources>
