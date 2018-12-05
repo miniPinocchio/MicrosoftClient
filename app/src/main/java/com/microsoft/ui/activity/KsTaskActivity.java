@@ -1,5 +1,6 @@
 package com.microsoft.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
@@ -128,7 +129,12 @@ public class KsTaskActivity extends BaseActivity implements BGARefreshLayout.BGA
 
     @Override
     public void onClick(View v) {
-
+        int position = (int) v.getTag();
+        Intent intent = new Intent(this, TaskDetailActivity.class);
+        String taskId = mMessages.get(position).getTaskId();
+        intent.putExtra(Constant.TASK_ID, taskId);
+        intent.putExtra(Constant.TASK_FLAG, Constant.KS_FLAG);
+        startActivity(intent);
     }
 
     @Override

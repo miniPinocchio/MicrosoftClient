@@ -13,6 +13,7 @@
         android:background="@color/sunglow">
 
         <ImageView
+            android:id="@+id/iv_mine_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -21,7 +22,7 @@
 
 
         <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/imageView1_user_photo"
+            android:id="@+id/iv_mine_user_photo"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginLeft="@dimen/size_30_dp"
@@ -41,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/size_20_dp"
             android:layout_marginTop="@dimen/size_50_dp"
-            android:layout_toRightOf="@id/imageView1_user_photo"
+            android:layout_toRightOf="@id/iv_mine_user_photo"
             android:text="@string/txt_user_name"
             android:textSize="@dimen/size_20_sp"
             />
@@ -51,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_user_name"
             android:layout_marginLeft="@dimen/size_20_dp"
-            android:layout_toRightOf="@id/imageView1_user_photo"
+            android:layout_toRightOf="@id/iv_mine_user_photo"
             android:text="手机号：13671236292"/>
 
         <LinearLayout
@@ -63,6 +64,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btn_my_property"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/size_50_dp"
@@ -72,6 +74,7 @@
                 android:textSize="@dimen/size_18_sp"/>
 
             <Button
+                android:id="@+id/btn_scan_code"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/size_50_dp"

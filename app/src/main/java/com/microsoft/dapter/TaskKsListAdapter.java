@@ -34,7 +34,7 @@ public class TaskKsListAdapter extends RecyclerView.Adapter<TaskKsListAdapter.Ta
     @NonNull
     @Override
     public TaskKsListAdapter.TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(mContext).inflate(R.layout.item_task_dy_list, parent, false);
+        View inflate = LayoutInflater.from(mContext).inflate(R.layout.item_task_ks_list, parent, false);
         return new TaskKsListAdapter.TaskViewHolder(inflate);
     }
 
@@ -43,7 +43,9 @@ public class TaskKsListAdapter extends RecyclerView.Adapter<TaskKsListAdapter.Ta
         DyListBean dyListBean = mDyListBeans.get(position);
         holder.tv_title.setText(dyListBean.getTitle());
         holder.tv_reward.setText(dyListBean.getBonus());
-        holder.rl_dy_item.setOnClickListener(mOnClickListener);
+        holder.rl_ks_item.setOnClickListener(mOnClickListener);
+
+        holder.rl_ks_item.setTag(position);
         //TODO 接口缺少参数
 //        holder.tv_person_num.setText(dyListBean.getBonus());
 //        holder.tv_title.setText(dyListBean.getTitle());
@@ -55,7 +57,7 @@ public class TaskKsListAdapter extends RecyclerView.Adapter<TaskKsListAdapter.Ta
     }
 
     class TaskViewHolder extends RecyclerView.ViewHolder {
-        RelativeLayout rl_dy_item;
+        RelativeLayout rl_ks_item;
         ImageView iv_header;
         TextView tv_title;
         TextView tv_person_num;
@@ -69,7 +71,7 @@ public class TaskKsListAdapter extends RecyclerView.Adapter<TaskKsListAdapter.Ta
             tv_person_num = itemView.findViewById(R.id.tv_ks_join_person);
             tv_reward = itemView.findViewById(R.id.tv_ks_task_reward);
             tv_reward_rmb = itemView.findViewById(R.id.tv_ks_task_rmb);
-            rl_dy_item = itemView.findViewById(R.id.rl_item_ks_task);
+            rl_ks_item = itemView.findViewById(R.id.rl_item_ks_task);
         }
     }
 }
