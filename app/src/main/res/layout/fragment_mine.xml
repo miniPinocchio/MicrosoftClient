@@ -47,13 +47,25 @@
             android:textSize="@dimen/size_20_sp"
             />
 
+
         <TextView
+            android:id="@+id/tv_user_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_user_name"
             android:layout_marginLeft="@dimen/size_20_dp"
             android:layout_toRightOf="@id/iv_mine_user_photo"
-            android:text="手机号：13671236292"/>
+            android:text="账号：13671236292"/>
+
+        <TextView
+            android:id="@+id/tv_user_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_user_phone"
+            android:layout_marginLeft="@dimen/size_10_dp"
+            android:layout_below="@id/tv_user_name"
+            android:text="白银"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"

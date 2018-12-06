@@ -46,9 +46,7 @@ public class TaskDyListAdapter extends RecyclerView.Adapter<TaskDyListAdapter.Ta
         holder.tv_reward.setText(dyListBean.getBonus());
         holder.rl_dy_item.setOnClickListener(mOnClickListener);
         holder.rl_dy_item.setTag(position);
-        //TODO 接口缺少参数
-//        holder.tv_person_num.setText(dyListBean.getBonus());
-//        holder.tv_title.setText(dyListBean.getTitle());
+        holder.tv_person_num.setText(dyListBean.getBrower());
     }
 
     @Override

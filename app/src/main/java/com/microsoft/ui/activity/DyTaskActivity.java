@@ -17,6 +17,7 @@ import com.microsoft.bean.DyListBean;
 import com.microsoft.bean.DyMiddleBean;
 import com.microsoft.bean.DyRootBean;
 import com.microsoft.bean.LoginBean;
+import com.microsoft.bean.RootBean;
 import com.microsoft.constant.Constant;
 import com.microsoft.dapter.TaskDyListAdapter;
 import com.microsoft.microsoftclient.R;
@@ -51,6 +52,8 @@ public class DyTaskActivity extends BaseActivity implements Callback<String>, Vi
     private LoadMoreAdapter mLoadMoreAdapter;
     private TaskDyListAdapter mAdapter;
     private String mId;
+    private int mNetType;
+    private String mTaskId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +91,7 @@ public class DyTaskActivity extends BaseActivity implements Callback<String>, Vi
     }
 
     private void getDyList(String userId) {
+        mNetType = 1;
         WdApp.getRetrofit().takeDyTask(userId).enqueue(this);
     }
 
@@ -106,21 +110,31 @@ public class DyTaskActivity extends BaseActivity implements Callback<String>, Vi
 
     private void resolveData(String body) {
         if (body != null) {
-            DyRootBean dyRootBean = GsonUtil.parseJsonWithGson(body, DyRootBean.class);
-            if (Constant.NET_STATUS.equals(dyRootBean.getCode())) {
-                DyMiddleBean rootBeanData = dyRootBean.getData();
-                if (rootBeanData.getRegTasks() != null) {
-                    mMessages.addAll(rootBeanData.getRegTasks());
-                    if (mMessages == null || mMessages.size() <= 0) {
-                        if (mBgaDouyinList != null) {
-                            mBgaDouyinList.endRefreshing();
+            if (mNetType == 1) {
+                DyRootBean dyRootBean = GsonUtil.parseJsonWithGson(body, DyRootBean.class);
+                if (Constant.NET_STATUS.equals(dyRootBean.getCode())) {
+                    DyMiddleBean rootBeanData = dyRootBean.getData();
+                    if (rootBeanData.getRegTasks() != null) {
+                        mMessages.addAll(rootBeanData.getRegTasks());
+                        if (mMessages == null || mMessages.size() <= 0) {
+                            if (mBgaDouyinList != null) {
+                                mBgaDouyinList.endRefreshing();
+                            }
+                            mLoadMoreAdapter.loadAllDataCompleted();
+                            return;
                         }
-                        mLoadMoreAdapter.loadAllDataCompleted();
-                        return;
+                        mLoadMoreAdapter.loadCompleted();
+                        mBgaDouyinList.endRefreshing();
                     }
-                    mLoadMoreAdapter.loadCompleted();
-                    mBgaDouyinList.endRefreshing();
                 }
+            } else if (mNetType == 2) {
+                RootBean rootBean = GsonUtil.parseJsonWithGson(body, RootBean.class);
+                if (Constant.NET_STATUS.equals(rootBean.getCode())) {
+                }
+                Intent intent = new Intent(this, TaskDetailActivity.class);
+                intent.putExtra(Constant.TASK_ID, mTaskId);
+                intent.putExtra(Constant.TASK_FLAG, Constant.DY_FLAG);
+                startActivity(intent);
             }
         }
 
@@ -129,11 +143,9 @@ public class DyTaskActivity extends BaseActivity implements Callback<String>, Vi
     @Override
     public void onClick(View v) {
         int position = (int) v.getTag();
-        Intent intent = new Intent(this, TaskDetailActivity.class);
-        String taskId = mMessages.get(position).getTaskId();
-        intent.putExtra(Constant.TASK_ID, taskId);
-        intent.putExtra(Constant.TASK_FLAG, Constant.DY_FLAG);
-        startActivity(intent);
+        mTaskId = mMessages.get(position).getTaskId();
+        mNetType = 2;
+        WdApp.getRetrofit().takeTask(mId, mTaskId).enqueue(this);
     }
 
     @Override

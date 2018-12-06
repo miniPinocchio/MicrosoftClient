@@ -13,6 +13,7 @@ public class DyListBean {
     private String created_at;
     private String updated_at;
     private String img;
+    private String brower;
 
     public String getTaskId() {
         return taskId;
@@ -70,6 +71,14 @@ public class DyListBean {
         this.img = img;
     }
 
+    public String getBrower() {
+        return brower;
+    }
+
+    public void setBrower(String brower) {
+        this.brower = brower;
+    }
+
     @Override
     public String toString() {
         return "DyListBean{" +
@@ -80,6 +89,7 @@ public class DyListBean {
                 ", created_at='" + created_at + '\'' +
                 ", updated_at='" + updated_at + '\'' +
                 ", img='" + img + '\'' +
+                ", brower='" + brower + '\'' +
                 '}';
     }
 }

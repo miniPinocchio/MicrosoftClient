@@ -87,13 +87,13 @@ public interface NetInterface {
      * 接任务
      *
      * @param userId
-     * @param tskId
+     * @param taskId
      * @return
      */
     @FormUrlEncoded
     @POST("iwapb/answerTask")
     Call<String> takeTask(@Field("userId") String userId,
-                          @Field("tskId") String tskId);
+                          @Field("taskId") String taskId);
 
     /**
      * 获取抖音任务列表
@@ -212,8 +212,8 @@ public interface NetInterface {
     @POST("iwapb/task/myTask")
     Call<String> takeMyTask(@Field("id") String id,
                             @Field("type") String type,
-                            @Field("page") String page,
-                            @Field("size") String size);
+                            @Field("page") int page,
+                            @Field("size") int size);
 
     /**
      * app版本号

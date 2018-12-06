@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:descendantFocusability = "blocksDescendants"
         android:orientation="vertical">
 
         <include layout="@layout/layout_title_bar"/>
@@ -24,7 +25,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="发布时间:2018-09-26 04:52:22 参与人数:140"
                 android:textSize="@dimen/size_14_sp"/>
         </LinearLayout>
 

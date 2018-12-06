@@ -11,6 +11,15 @@ public class LoginBean {
     private String mobile;
     private String name;
     private String id;
+    private String grade;
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
 
     public String getPassword() {
         return password;
@@ -60,6 +69,7 @@ public class LoginBean {
                 ", mobile='" + mobile + '\'' +
                 ", name='" + name + '\'' +
                 ", id='" + id + '\'' +
+                ", grade='" + grade + '\'' +
                 '}';
     }
 }

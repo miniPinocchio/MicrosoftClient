@@ -1,9 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.microsoft.ui.activity.PropertyActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/layout_title_bar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_160_dp"
+        android:background="@color/sunglow">
+
+        <TextView
+            android:id="@+id/tv_txt_user_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_16_dp"
+            android:layout_marginTop="@dimen/size_10_dp"
+            android:text="积分余额"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_18_sp"/>
+
+        <TextView
+            android:id="@+id/tv_user_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_txt_user_balance"
+            android:layout_marginLeft="@dimen/size_16_dp"
+            android:layout_marginTop="@dimen/size_20_dp"
+            android:text="6215"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_30_sp"/>
+
+        <TextView
+            android:id="@+id/tv_user_get_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/size_50_dp"
+            android:layout_marginRight="@dimen/size_10_dp"
+            android:background="@drawable/shape_bg_btn_white"
+            android:paddingLeft="@dimen/size_20_dp"
+            android:paddingTop="@dimen/size_8_dp"
+            android:paddingRight="@dimen/size_20_dp"
+            android:paddingBottom="@dimen/size_8_dp"
+            android:text="提现"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_18_sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_1_dp"
+            android:layout_below="@id/tv_user_balance"
+            android:layout_marginTop="@dimen/size_20_dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_balance_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/size_10_dp"
+            android:layout_marginBottom="@dimen/size_10_dp"
+            android:gravity="center_horizontal"
+            android:text="积分明细"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_20_sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_1_dp"
+            android:layout_below="@id/tv_balance_detail"
+            android:layout_marginTop="@dimen/size_20_dp"
+            android:background="@color/white"/>
+
+    </RelativeLayout>
+
+    <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+        android:id="@+id/bga_balance_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_balance_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_line_back"/>
+    </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+
+</LinearLayout>

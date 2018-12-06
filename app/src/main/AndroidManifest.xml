@@ -77,6 +77,12 @@
 
         <activity android:name="com.microsoft.ui.activity.PropertyActivity">
         </activity>
+        <activity android:name="com.microsoft.ui.activity.SettingActivity">
+        </activity>
+        <activity android:name="com.microsoft.ui.activity.MessageActivity">
+        </activity>
+        <activity android:name="com.microsoft.ui.activity.CustomerActivity">
+        </activity>
     </application>
 
 </manifest>

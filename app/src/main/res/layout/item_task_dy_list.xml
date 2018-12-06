@@ -22,7 +22,6 @@
         android:layout_marginLeft="@dimen/size_10_dp"
         android:layout_marginTop="@dimen/size_10_dp"
         android:layout_toRightOf="@id/iv_dy_head"
-        android:text="关注抖音1534562535"
         android:textSize="@dimen/size_18_sp"
         android:textStyle="bold"/>
 
@@ -48,7 +47,6 @@
             android:id="@+id/tv_dy_join_person"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="111"
             android:textColor="@color/blue_join"/>
 
 
@@ -76,14 +74,12 @@
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/jifen"
             android:drawablePadding="@dimen/size_2_dp"
-            android:text="500"
             android:textColor="@color/red_reward"/>
 
         <TextView
             android:id="@+id/tv_dy_task_rmb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(约0.5元人民币)"
             />
 
     </LinearLayout>

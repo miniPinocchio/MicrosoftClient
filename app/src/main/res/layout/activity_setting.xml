@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.microsoft.ui.activity.SettingActivity">
+
+    <include layout="@layout/layout_title_bar"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_50_dp"
+        android:layout_marginTop="@dimen/size_30_dp"
+        android:layout_marginRight="@dimen/size_50_dp"
+        android:background="@drawable/shape_bg_button_yellow"
+        android:text="提交"/>
+
+</LinearLayout>

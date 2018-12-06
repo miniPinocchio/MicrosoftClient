@@ -46,9 +46,7 @@ public class TaskKsListAdapter extends RecyclerView.Adapter<TaskKsListAdapter.Ta
         holder.rl_ks_item.setOnClickListener(mOnClickListener);
 
         holder.rl_ks_item.setTag(position);
-        //TODO 接口缺少参数
-//        holder.tv_person_num.setText(dyListBean.getBonus());
-//        holder.tv_title.setText(dyListBean.getTitle());
+        holder.tv_person_num.setText(dyListBean.getBrower());
     }
 
     @Override

@@ -31,6 +31,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -229,6 +230,16 @@ public class TaskDetailActivity extends BaseActivity implements Callback<String>
                             Spanned spanned = Html.fromHtml(taskDetailBean.getContent(), getter, null);
                             mTvContentDetail.setText(spanned);
                         }
+                        String createdAt = taskDetailBean.getCreated_at();
+                        int brower = taskDetailBean.getBrower();
+                        mTvDetailCreateTime.setText(String.format(Locale.CHINA, "发布时间:%s  参与人数:%d", createdAt, brower));
+
+                        int bonus = taskDetailBean.getBonus();
+                        mTvDetailReward.setText(String.valueOf(bonus));
+
+                        String checkTime = taskDetailBean.getChecktime();
+                        mTvDetailCheckTime.setText(checkTime);
+
                     }
                 } else {
                     showToast(detailRootBean.getMsg());

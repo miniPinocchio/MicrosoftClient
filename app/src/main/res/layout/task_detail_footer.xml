@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:background="@drawable/shape_bg_input"/>
+            android:background="@drawable/shape_bg_input_gray"/>
 
 
     </LinearLayout>
@@ -49,7 +49,7 @@
             android:id="@+id/tv_select_image1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_bg_input"
+            android:background="@drawable/shape_bg_input_gray"
             android:maxLines="1"
             android:padding="@dimen/size_5_dp"
             android:text="@string/click_select_image"/>
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:background="@drawable/shape_bg_input"
+            android:background="@drawable/shape_bg_input_gray"
             android:padding="@dimen/size_5_dp"
             android:text="@string/click_select_image"/>
 
