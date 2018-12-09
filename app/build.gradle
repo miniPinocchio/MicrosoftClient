@@ -10,6 +10,16 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        myKey {
+            storeFile file(KEY_PATH)
+            storePassword KEY_PASS
+            keyAlias ALIAS_NAME
+            keyPassword ALIAS_PASS
+        }
+    }
+
     buildTypes {
         debug {
             debuggable true
@@ -22,13 +32,17 @@ android {
         //AS 3.0.1后，如果使用shrinkResources来移除未引用资源，
         // 必须要先开启混淆minifyEnabled，才能通过资源压缩器将它们移除，否则编译会报错。
         release {
+            signingConfig signingConfigs.myKey
             zipAlignEnabled true
             debuggable true
             minifyEnabled false //是否混淆
 //            shrinkResources true //是否去除无效的资源文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
     }
+
+
     allprojects {
         repositories {
             google()// 或者 mavenCentral()
@@ -97,7 +111,6 @@ dependencies {
     // 因为内含 res 文件, 使用 aar 方式调用，查看wan android api
     implementation 'com.github.afkT:DevUtils:1.0.6@aar'
 
-    implementation 'com.keyboard3:LableView:1.1.1'
     implementation 'cn.bingoogolapple:bga-refreshlayout:1.1.7@aar'
     implementation 'com.github.donkingliang:ImageSelector:1.4.0'
     //图片压缩

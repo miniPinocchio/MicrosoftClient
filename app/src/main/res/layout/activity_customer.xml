@@ -9,8 +9,73 @@
 
     <include layout="@layout/layout_title_bar"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_customer_center"
+    <LinearLayout
+        android:id="@+id/ll_service_first"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginTop="@dimen/size_20_dp"
+        android:layout_marginRight="@dimen/size_10_dp"
+        android:layout_marginBottom="@dimen/size_10_dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_5_dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/img_service"
+            android:text="客服QQ1:"
+            android:textSize="@dimen/size_18_sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_10_dp"
+            android:text="568995152"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/size_18_sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_service_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_10_dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_5_dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/img_service"
+            android:text="客服QQ2:"
+            android:textSize="@dimen/size_18_sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_10_dp"
+            android:text="37735306"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/size_18_sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_10_dp"
+        android:drawableLeft="@drawable/img_service"
+        android:padding="@dimen/size_5_dp"
+        android:text="微信二维码"
+        android:textSize="@dimen/size_18_sp"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/size_5_dp"
+        android:src="@drawable/img_wechat"/>
 </LinearLayout>
