@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MicrosoftClient</string>
+    <string name="app_name">微助手</string>
     <string name="dy_ks">抖音 快手</string>
     <string name="dy_attention_task">抖音关注任务</string>
     <string name="top_bar_title">标题</string>
@@ -30,6 +30,8 @@
     <string name="txt_user_name">三军不可夺帅</string>
     <string name="string_my_earning">我的财产</string>
     <string name="string_scan_code">二维码</string>
+    <string name="string_cash_money">提现</string>
+    <string name="string_voice_cash_money">张**:在本平台提现200.00元</string>
     <string name="earning">赚钱</string>
     <string name="mine">我的</string>
 </resources>

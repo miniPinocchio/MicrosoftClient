@@ -1,245 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.microsoft.ui.activity.TaskDetailActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:descendantFocusability = "beforeDescendants"
-        android:orientation="vertical">
+    <include layout="@layout/layout_title_bar"/>
 
-        <include layout="@layout/layout_title_bar"/>
-        <!--使用表格布局，每个单元格设定底色，然后在上面在布局，覆盖底色，完成单元格边框的样式-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/size_18_dp"
+            android:descendantFocusability="beforeDescendants"
             android:orientation="vertical">
 
+            <!--使用表格布局，每个单元格设定底色，然后在上面在布局，覆盖底色，完成单元格边框的样式-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_18_dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_detail_create_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/size_14_sp"/>
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_1_dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/aluminum">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/size_1_dp"
+                            android:layout_marginRight="@dimen/size_1_dp"
+                            android:background="@android:color/background_light">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:text="佣         金"
+                                android:textColor="@color/stack"
+                                android:textSize="20dp"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/size_1_dp"
+                            android:layout_marginRight="@dimen/size_1_dp"
+                            android:background="@android:color/background_light">
+
+                            <TextView
+                                android:id="@+id/tv_detail_reward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:text="500积分"
+                                android:textColor="@color/stack"
+                                android:textSize="20dp"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/aluminum"
+                    android:paddingBottom="@dimen/size_1_dp">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/size_1_dp"
+                            android:layout_marginRight="@dimen/size_1_dp"
+                            android:background="@android:color/background_light">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:text="做单时间"
+                                android:textColor="@color/stack"
+                                android:textSize="20dp"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/size_1_dp"
+                            android:layout_marginRight="@dimen/size_1_dp"
+                            android:background="@android:color/background_light">
+
+                            <TextView
+                                android:id="@+id/tv_detail_do_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:text="全天"
+                                android:textColor="@color/stack"
+                                android:textSize="20dp"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/aluminum"
+                    android:paddingBottom="@dimen/size_1_dp">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/size_1_dp"
+                            android:layout_marginRight="@dimen/size_1_dp"
+                            android:background="@android:color/background_light">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:text="审核时间"
+                                android:textColor="@color/stack"
+                                android:textSize="20dp"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/size_1_dp"
+                            android:layout_marginRight="@dimen/size_1_dp"
+                            android:background="@android:color/background_light">
+
+                            <TextView
+                                android:id="@+id/tv_detail_check_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:text="10个工作日内"
+                                android:textColor="@color/stack"
+                                android:textSize="20dp"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+            </TableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginLeft="@dimen/size_10_dp"
+                android:layout_marginTop="@dimen/size_20_dp"
+                android:layout_marginRight="@dimen/size_10_dp"
+                android:layout_marginBottom="@dimen/size_20_dp"
+                android:background="@drawable/bg_imgainary_line"/>
+
+
             <TextView
-                android:id="@+id/tv_detail_create_time"
+                android:id="@+id/tv_content_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginLeft="@dimen/size_10_dp"
+                android:layout_marginTop="@dimen/size_20_dp"
+                android:layout_marginRight="@dimen/size_10_dp"
+                android:layout_marginBottom="@dimen/size_20_dp"
+                android:background="@drawable/bg_imgainary_line"/>
+
+            <include layout="@layout/task_detail_footer"/>
+
+            <Button
+                android:id="@+id/btn_commit_task"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textSize="@dimen/size_14_sp"/>
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="@dimen/size_10_dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="@dimen/size_30_dp"
+                android:background="@drawable/shape_bg_button_yellow"
+                android:text="提交"/>
         </LinearLayout>
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_1_dp">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/aluminum">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/size_1_dp"
-                        android:layout_marginRight="@dimen/size_1_dp"
-                        android:background="@android:color/background_light">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:text="佣         金"
-                            android:textColor="@color/stack"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/size_1_dp"
-                        android:layout_marginRight="@dimen/size_1_dp"
-                        android:background="@android:color/background_light">
-
-                        <TextView
-                            android:id="@+id/tv_detail_reward"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:text="500积分"
-                            android:textColor="@color/stack"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
-                </LinearLayout>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/aluminum"
-                android:paddingBottom="@dimen/size_1_dp">
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/size_1_dp"
-                        android:layout_marginRight="@dimen/size_1_dp"
-                        android:background="@android:color/background_light">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:text="做单时间"
-                            android:textColor="@color/stack"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/size_1_dp"
-                        android:layout_marginRight="@dimen/size_1_dp"
-                        android:background="@android:color/background_light">
-
-                        <TextView
-                            android:id="@+id/tv_detail_do_time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:text="全天"
-                            android:textColor="@color/stack"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/aluminum"
-                android:paddingBottom="@dimen/size_1_dp">
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/size_1_dp"
-                        android:layout_marginRight="@dimen/size_1_dp"
-                        android:background="@android:color/background_light">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:text="审核时间"
-                            android:textColor="@color/stack"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/size_1_dp"
-                        android:layout_marginRight="@dimen/size_1_dp"
-                        android:background="@android:color/background_light">
-
-                        <TextView
-                            android:id="@+id/tv_detail_check_time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:text="10个工作日内"
-                            android:textColor="@color/stack"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
-                </LinearLayout>
-            </TableRow>
-        </TableLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginLeft="@dimen/size_10_dp"
-            android:layout_marginTop="@dimen/size_20_dp"
-            android:layout_marginRight="@dimen/size_10_dp"
-            android:layout_marginBottom="@dimen/size_20_dp"
-            android:background="@drawable/bg_imgainary_line"/>
-
-
-
-        <TextView
-            android:id="@+id/tv_content_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_marginLeft="@dimen/size_10_dp"
-            android:layout_marginTop="@dimen/size_20_dp"
-            android:layout_marginRight="@dimen/size_10_dp"
-            android:layout_marginBottom="@dimen/size_20_dp"
-            android:background="@drawable/bg_imgainary_line"/>
-
-        <include layout="@layout/task_detail_footer"/>
-
-        <Button
-            android:id="@+id/btn_commit_task"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_bg_button_yellow"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:layout_marginTop="@dimen/size_10_dp"
-            android:layout_marginBottom="@dimen/size_30_dp"
-            android:layout_gravity="center_horizontal"
-            android:text="提交"/>
-    </LinearLayout>
-
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

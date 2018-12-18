@@ -40,7 +40,7 @@
         <activity
             android:name="com.microsoft.ui.activity.TaskDetailActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+            android:windowSoftInputMode="adjustPan|stateHidden">
         </activity>
 
         <!-- //图片选择Activity -->
@@ -82,6 +82,8 @@
         <activity android:name="com.microsoft.ui.activity.MessageActivity">
         </activity>
         <activity android:name="com.microsoft.ui.activity.CustomerActivity">
+        </activity>
+        <activity android:name="com.microsoft.ui.activity.QrCodeActivity">
         </activity>
     </application>
 

@@ -19,7 +19,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_1_dp"
-        android:background="@color/black"/>
+        android:background="@color/black_tran30"/>
 
     <android.support.v4.app.FragmentTabHost
         android:id="@+id/main_tabhost"

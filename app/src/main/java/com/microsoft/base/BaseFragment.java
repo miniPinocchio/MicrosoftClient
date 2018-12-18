@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.microsoft.WdApp;
 import com.microsoft.microsoftclient.R;
 
 import java.util.Objects;
@@ -60,4 +62,7 @@ public class BaseFragment extends Fragment {
         startActivity(intent);
     }
 
+    public void showToast(String text) {
+        Toast.makeText(WdApp.getInstance().getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+    }
 }

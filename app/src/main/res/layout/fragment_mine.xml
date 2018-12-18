@@ -93,8 +93,9 @@
                 android:layout_marginRight="@dimen/size_50_dp"
                 android:layout_weight="1"
                 android:background="@drawable/shape_bg_button_white"
-                android:text="@string/string_scan_code"
-                android:textSize="@dimen/size_18_sp"/>
+                android:text="@string/string_cash_money"
+                android:textSize="@dimen/size_18_sp"
+                />
         </LinearLayout>
 
     </RelativeLayout>

@@ -9,6 +9,7 @@ import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -100,7 +101,7 @@ public class TaskDetailActivity extends BaseActivity implements Callback<String>
         WdApp.getRetrofit().takeTaskDetail(taskId, userId).enqueue(this);
     }
 
-    @OnClick({R.id.tv_select_image1, R.id.tv_select_image2, R.id.btn_commit_task})
+    @OnClick({R.id.tv_select_image1, R.id.tv_select_image2, R.id.btn_commit_task,R.id.et_input_number_douyin})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_select_image1:
@@ -114,9 +115,22 @@ public class TaskDetailActivity extends BaseActivity implements Callback<String>
             case R.id.btn_commit_task:
                 uploadImage();
                 break;
+                case R.id.et_input_number_douyin:
+                showSoftInputFromWindow();
+                break;
             default:
                 break;
         }
+    }
+
+    /**
+     * EditText获取焦点并显示软键盘
+     */
+    public void showSoftInputFromWindow() {
+        mEtInputNumberDouyin.setFocusable(true);
+        mEtInputNumberDouyin.setFocusableInTouchMode(true);
+        mEtInputNumberDouyin.requestFocus();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
 

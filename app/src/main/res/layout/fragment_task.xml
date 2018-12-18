@@ -1,54 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_white"
+    android:background="@color/black_tran10"
+    android:orientation="vertical"
     tools:context="com.microsoft.ui.fragment.TaskFragment">
 
     <include
         android:id="@+id/ic_title_name"
         layout="@layout/layout_title_bar"/>
 
-    <ImageView
-        android:id="@+id/iv_dy_tsk"
-        android:layout_width="@dimen/size_0_dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="@dimen/size_48_dp"
-        android:layout_marginRight="@dimen/size_48_dp"
-        android:layout_marginTop="@dimen/size_18_dp"
-        android:src="@mipmap/icon_dy_task"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ic_title_name"
-        app:layout_constraintVertical_weight="1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginRight="@dimen/size_10_dp"
+        android:layout_marginTop="@dimen/size_10_dp"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/iv_ks_tsk"
-        android:layout_width="@dimen/size_0_dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="@dimen/size_48_dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="@dimen/size_48_dp"
-        android:src="@mipmap/icon_ks_tsk"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_dy_tsk"
-        app:layout_constraintVertical_weight="1" />
+        <LinearLayout
+            android:id="@+id/ll_dy_task"
+            android:layout_width="@dimen/size_0_dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_dy_tsk"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="@dimen/size_5_dp"
+                android:src="@drawable/icon_dy_task"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="抖音任务"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/size_1_dp"
+            android:layout_height="match_parent"
+            android:background="@color/black_tran30"/>
+
+        <LinearLayout
+            android:id="@+id/ll_ks_task"
+            android:layout_width="@dimen/size_0_dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_ks_tsk"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="@dimen/size_5_dp"
+                android:src="@drawable/icon_ks_task"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="快手任务"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_1_dp"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginRight="@dimen/size_10_dp"
+        android:background="@color/black_tran30"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginRight="@dimen/size_10_dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_more_task"
+            android:layout_width="@dimen/size_0_dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_more_tsk"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="@dimen/size_10_dp"
+                android:src="@drawable/icon_more_task"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="更多任务"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/size_1_dp"
+            android:layout_height="match_parent"
+            android:background="@color/black_tran30"/>
+
+        <TextView
+            android:layout_width="@dimen/size_0_dp"
+            android:layout_height="@dimen/size_10_dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_1_dp"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginRight="@dimen/size_10_dp"
+        android:background="@color/black_tran30"/>
+
+    <TextView
+        android:id="@+id/tv_share_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10_dp"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginRight="@dimen/size_10_dp"
+        android:text="分享有礼"
+        android:textSize="@dimen/size_20_sp"
+        android:gravity="center"
+        android:background="@drawable/mabg_share_money"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginRight="@dimen/size_10_dp"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/size_10_dp"
+        android:text="@string/string_voice_cash_money"
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/size_5_dp"
+        android:drawableLeft="@drawable/icon_voice_trumpet"/>
 
     <ImageView
         android:id="@+id/iv_main_log"
-        android:layout_width="@dimen/size_0_dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/size_10_dp"
+        android:scaleType="fitXY"
         android:src="@mipmap/icon_main_log"
-        app:layout_constraintVertical_weight="3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_ks_tsk"
         />
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -35,8 +35,8 @@ public interface NetInterface {
 
     /**
      * 可以通过Retrofit 直接去解析获取到的json 得到的数据可以直接开始使用
-     * TestModle 是gson生成的实体类
-     *
+     * TestModule 是gson生成的实体类
+
      * @return
      */
     @GET("article/list/text?page=1")

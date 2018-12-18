@@ -6,12 +6,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.microsoft.base.BaseFragment;
 import com.microsoft.microsoftclient.R;
 import com.microsoft.ui.activity.DyTaskActivity;
 import com.microsoft.ui.activity.KsTaskActivity;
+import com.microsoft.ui.activity.QrCodeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,11 +28,15 @@ import butterknife.Unbinder;
 public class TaskFragment extends BaseFragment {
 
 
-    @BindView(R.id.iv_dy_tsk)
-    ImageView mIvDyTsk;
-    @BindView(R.id.iv_ks_tsk)
-    ImageView mIvKsTsk;
+    @BindView(R.id.ll_dy_task)
+    LinearLayout mLlDyTask;
+    @BindView(R.id.ll_ks_task)
+    LinearLayout mLlKsTask;
+    @BindView(R.id.ll_more_task)
+    LinearLayout mLlMoreTask;
     Unbinder unbinder;
+    @BindView(R.id.tv_share_money)
+    TextView mTvShareMoney;
 
     public TaskFragment() {
         // Required empty public constructor
@@ -48,24 +54,30 @@ public class TaskFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.iv_dy_tsk, R.id.iv_ks_tsk})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.iv_dy_tsk://抖音投票点赞任务
-                startAct(DyTaskActivity.class);
-                break;
-            case R.id.iv_ks_tsk://快手投票点赞任务
-                startAct(KsTaskActivity.class);
-                break;
-            default:
-                break;
-        }
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @OnClick({R.id.ll_dy_task, R.id.ll_ks_task, R.id.ll_more_task, R.id.tv_share_money})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.ll_dy_task://抖音投票点赞任务
+                startAct(DyTaskActivity.class);
+                break;
+            case R.id.ll_ks_task://快手投票点赞任务
+                startAct(KsTaskActivity.class);
+                break;
+            case R.id.ll_more_task:
+                showToast("敬请期待 更多功能.");
+                break;
+                case R.id.tv_share_money:
+                startAct(QrCodeActivity.class);
+                break;
+            default:
+                break;
+        }
     }
 
 }
