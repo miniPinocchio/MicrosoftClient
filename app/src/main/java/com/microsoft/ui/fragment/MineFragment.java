@@ -14,6 +14,7 @@ import com.microsoft.base.BaseFragment;
 import com.microsoft.base.UserService;
 import com.microsoft.bean.LoginBean;
 import com.microsoft.microsoftclient.R;
+import com.microsoft.ui.activity.CashActivity;
 import com.microsoft.ui.activity.CustomerActivity;
 import com.microsoft.ui.activity.MessageActivity;
 import com.microsoft.ui.activity.PropertyActivity;
@@ -107,6 +108,7 @@ public class MineFragment extends BaseFragment {
                 startAct(PropertyActivity.class);
                 break;
             case R.id.btn_scan_code://二维码
+                startAct(CashActivity.class);
                 break;
             case R.id.rl_task_record://任务明细
                 startAct(PropertyActivity.class);

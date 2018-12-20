@@ -10,6 +10,12 @@
     <!-- //调用相机权限 -->
     <uses-permission android:name="android.permission.CAMERA"/>
 
+    <!-- LinkedME SDK 需要开启的权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
     <application
         android:name="com.microsoft.WdApp"
         android:allowBackup="true"
@@ -19,6 +25,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- LinkedME官网注册应用后,从"设置"页面获取该Key -->
+        <meta-data
+            android:name="linkedme.sdk.key"
+            android:value="95a4a8e82f1397ebf8096fa642e68491"/>
+
         <activity android:name="com.microsoft.ui.activity.MainActivity">
         </activity>
         <activity android:name="com.microsoft.base.BaseActivity"/>
@@ -84,6 +96,55 @@
         <activity android:name="com.microsoft.ui.activity.CustomerActivity">
         </activity>
         <activity android:name="com.microsoft.ui.activity.QrCodeActivity">
+        </activity>
+        <activity android:name="com.microsoft.ui.activity.CashActivity">
+        </activity>
+        <activity
+            android:name="com.microsoft.ui.activity.share.UriSchemeProcessActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
+
+            <!-- URI Scheme方式 在dashboard配置中,请保持与ios的URI Scheme相同 -->
+            <!--
+            如果程序已存在与此完全相同的data配置,即只包含scheme并且值完全相同,
+            则需要考虑发起的intent会出现相同应用图标的选择对话框的情况
+            参考集成文档:https://www.linkedme.cc/docs/page4.html#link1
+            -->
+            <intent-filter>
+
+                <!-- 此处scheme值需要替换为后台设置中的scheme值 -->
+                <!-- host禁止更改！！！ -->
+                <!-- 禁止配置其他属性 -->
+                <data
+                    android:host="linkedme"
+                    android:scheme="microsoftclient"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+
+            <!-- APP Links方式,Android 23版本及以后支持 -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <!-- 以下pathPrefix值需要替换为后台设置中 App ID 的值 -->
+                <!-- host中设置的lkme.cc不要更改！！！ -->
+                <data
+                    android:host="lkme.cc"
+                    android:pathPrefix="/ZWD"
+                    android:scheme="https"/>
+                <data
+                    android:host="lkme.cc"
+                    android:pathPrefix="/ZWD"
+                    android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.ui.activity.share.MiddleActivity">
         </activity>
     </application>
 

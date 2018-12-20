@@ -34,4 +34,11 @@
     <string name="string_voice_cash_money">张**:在本平台提现200.00元</string>
     <string name="earning">赚钱</string>
     <string name="mine">我的</string>
+    <string name="string_to_cash">我要提现:</string>
+    <string name="string_cash_type">提现方式</string>
+    <string name="string_cash_mount">提现数量</string>
+    <string name="string_cash_account">账     号</string>
+    <string name="string_cash_account_tips">请正确填写微信或支付宝账号</string>
+    <string name="string_gold">元宝</string>
+    <string name="string_input_mount_tips">请填写数量</string>
 </resources>

@@ -2,6 +2,7 @@ package com.microsoft;
 
 import android.app.Application;
 
+import com.microquation.linkedme.android.LinkedME;
 import com.microsoft.microsoftclient.BuildConfig;
 import com.microsoft.netconfig.ApiServiceFactory;
 import com.microsoft.netconfig.DataLayer;
@@ -31,6 +32,17 @@ public class WdApp extends Application {
                 return BuildConfig.DEBUG;
             }
         });
+        // 初始化SDK
+        LinkedME.getInstance(this);
+
+        if (BuildConfig.DEBUG) {
+            //设置debug模式下打印LinkedME日志
+            LinkedME.getInstance().setDebug();
+        }
+        //初始时请设置为false
+        LinkedME.getInstance().setImmediate(false);
+//        设置处理跳转逻辑的中转页，MiddleActivity详见后续配置
+//        LinkedME.getInstance().setHandleActivity(MiddleActivity.class.getName());
     }
 
     public static NetInterface getRetrofit() {
