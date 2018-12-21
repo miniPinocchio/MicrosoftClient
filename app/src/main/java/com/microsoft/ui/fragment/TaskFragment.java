@@ -14,6 +14,7 @@ import com.microsoft.microsoftclient.R;
 import com.microsoft.ui.activity.DyTaskActivity;
 import com.microsoft.ui.activity.KsTaskActivity;
 import com.microsoft.ui.activity.QrCodeActivity;
+import com.microsoft.widget.MarqueeTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +38,10 @@ public class TaskFragment extends BaseFragment {
     Unbinder unbinder;
     @BindView(R.id.tv_share_money)
     TextView mTvShareMoney;
+    @BindView(R.id.marquee_notification)
+    MarqueeTextView mMarqueeNotification;
+
+    private String[] marquees = {"张**:在本平台提现200.00元", "王**:在本平台提现500.00元", "刘**:在本平台提现300.00元"};
 
     public TaskFragment() {
         // Required empty public constructor
@@ -50,7 +55,12 @@ public class TaskFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_task, container, false);
         unbinder = ButterKnife.bind(this, view);
         initTopBar(view, "任务", false);
+        initView();
         return view;
+    }
+
+    private void initView() {
+        mMarqueeNotification.setTextArrays(marquees);
     }
 
 
@@ -72,7 +82,7 @@ public class TaskFragment extends BaseFragment {
             case R.id.ll_more_task:
                 showToast("敬请期待 更多功能.");
                 break;
-                case R.id.tv_share_money:
+            case R.id.tv_share_money://分享
                 startAct(QrCodeActivity.class);
                 break;
             default:

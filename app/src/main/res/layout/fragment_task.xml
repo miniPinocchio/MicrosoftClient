@@ -15,10 +15,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:layout_marginLeft="@dimen/size_10_dp"
-        android:layout_marginRight="@dimen/size_10_dp"
         android:layout_marginTop="@dimen/size_10_dp"
+        android:layout_marginRight="@dimen/size_10_dp"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -85,9 +85,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:layout_marginLeft="@dimen/size_10_dp"
         android:layout_marginRight="@dimen/size_10_dp"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -136,27 +136,38 @@
         android:id="@+id/tv_share_money"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_10_dp"
         android:layout_marginLeft="@dimen/size_10_dp"
+        android:layout_marginTop="@dimen/size_10_dp"
         android:layout_marginRight="@dimen/size_10_dp"
-        android:text="分享有礼"
-        android:textSize="@dimen/size_20_sp"
+        android:background="@drawable/mabg_share_money"
         android:gravity="center"
-        android:background="@drawable/mabg_share_money"/>
+        android:text="分享有礼"
+        android:textSize="@dimen/size_20_sp"/>
 
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/size_10_dp"
-        android:layout_marginRight="@dimen/size_10_dp"
-        android:background="@color/white"
         android:layout_marginTop="@dimen/size_10_dp"
-        android:text="@string/string_voice_cash_money"
-        android:gravity="center_vertical"
-        android:drawablePadding="@dimen/size_5_dp"
-        android:drawableLeft="@drawable/icon_voice_trumpet"/>
+        android:layout_marginRight="@dimen/size_10_dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/size_5_dp"
+            android:src="@drawable/broadcast_icon"
+            />
+
+        <com.microsoft.widget.MarqueeTextView
+            android:id="@+id/marquee_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"/>
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/iv_main_log"

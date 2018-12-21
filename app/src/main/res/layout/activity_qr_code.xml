@@ -9,6 +9,9 @@
 
     <include layout="@layout/layout_title_bar"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,12 +24,12 @@
         <ImageView
             android:id="@+id/iv_qrcode_share"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/size_0_dp"
+            android:layout_height="@dimen/size_240_dp"
             android:layout_marginLeft="@dimen/size_20_dp"
             android:layout_marginRight="@dimen/size_20_dp"
             android:layout_marginTop="@dimen/size_30_dp"
             android:layout_marginBottom="@dimen/size_20_dp"
-            android:layout_weight="0.6"/>
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -34,11 +37,23 @@
             android:layout_marginLeft="@dimen/size_20_dp"
             android:layout_marginRight="@dimen/size_20_dp"
             android:layout_marginTop="@dimen/size_30_dp"
-            android:layout_marginBottom="@dimen/size_20_dp"
             android:gravity="center_horizontal"
-            android:text="扫一扫二维码图案，可下载应用"/>
+            android:text="@string/qr_code_scan"/>
+
+        <TextView
+            android:id="@+id/tv_qr_code_rule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_10_dp"
+            android:layout_marginRight="@dimen/size_10_dp"
+            android:layout_marginTop="@dimen/size_10_dp"
+            android:layout_marginBottom="@dimen/size_60_dp"
+            android:gravity="center_horizontal"
+            />
 
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

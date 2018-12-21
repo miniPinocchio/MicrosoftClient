@@ -40,4 +40,6 @@
     <dimen name="size_100_dp">100dp</dimen>
     <dimen name="size_150_dp">150dp</dimen>
     <dimen name="size_160_dp">160dp</dimen>
+    <dimen name="size_240_dp">240dp</dimen>
+    <dimen name="size_300_dp">300dp</dimen>
 </resources>

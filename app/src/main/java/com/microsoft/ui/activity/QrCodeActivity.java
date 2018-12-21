@@ -2,9 +2,13 @@ package com.microsoft.ui.activity;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.microsoft.base.BaseActivity;
+import com.microsoft.constant.SolidData;
 import com.microsoft.microsoftclient.R;
 import com.microsoft.util.QRCodeUtil;
 
@@ -22,6 +26,8 @@ public class QrCodeActivity extends BaseActivity {
 
     @BindView(R.id.iv_qrcode_share)
     ImageView mIvQrcodeShare;
+    @BindView(R.id.tv_qr_code_rule)
+    TextView mTvQrCodeRule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,8 @@ public class QrCodeActivity extends BaseActivity {
                 drawableToBitmap(getResources().getDrawable(R.mipmap.ant_icon)));
 
         mIvQrcodeShare.setImageBitmap(qrCodeWithLogo5);
+        Spanned spanned = Html.fromHtml(SolidData.qr_code_rule);
+        mTvQrCodeRule.setText(spanned);
     }
 
 

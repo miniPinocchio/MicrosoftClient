@@ -20,7 +20,7 @@
     <string name="no_data">暂时没有数据</string>
     <string name="cancel">取消</string>
     <string name="sure">确定</string>
-    <string name="text_focus_douyin">你的抖音号(非任务内关注号)</string>
+    <string name="text_focus_douyin">你的游戏号(非任务内关注号)</string>
     <string name="task_commit">任务提交</string>
     <string name="my_capture">"我"的截图</string>
     <string name="click_select_image">点击选择图片</string>
@@ -37,8 +37,21 @@
     <string name="string_to_cash">我要提现:</string>
     <string name="string_cash_type">提现方式</string>
     <string name="string_cash_mount">提现数量</string>
-    <string name="string_cash_account">账     号</string>
+    <string name="string_cash_account">账&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;号</string>
     <string name="string_cash_account_tips">请正确填写微信或支付宝账号</string>
     <string name="string_gold">元宝</string>
     <string name="string_input_mount_tips">请填写数量</string>
+    <string name="string_input_account_tips">请填写账号</string>
+    <string name="qr_code_scan">扫一扫二维码图案，可下载应用</string>
+    <string name="qr_code_help">
+        <p style='white-space: normal; text-indent: 14px;'>
+            <span style='font-family: 宋体; font-size: 14px;'>
+                分享给好友，成功注册为白银会员，立即送3000元宝（大约30元）！<br/>
+                1、成功推荐4人，可得3000x4＝12000元宝（约120元），同时免费为您升级为黄金会员，可享受做任务一单100元宝（约1元）。多做多得。<br/>
+                2、成功推荐8人，可得3000x8=24000元宝（约240元），同时免费为您升级为白金会员，可享受做任务一单150元宝（约1.5元）。多做多得。<br/>
+                3、成功推荐12人，可得3000x12=36000元宝（约360元），同时免费为您升级为钻石会员，可享受做任务一单200元宝（约2元）。多做多得<br/>
+        </span></p>
+        </string>
+    <string name="alipay_wechat">微信/支付宝</string>
+
 </resources>

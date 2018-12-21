@@ -17,6 +17,7 @@ import com.microsoft.bean.DyListBean;
 import com.microsoft.bean.DyMiddleBean;
 import com.microsoft.bean.DyRootBean;
 import com.microsoft.bean.LoginBean;
+import com.microsoft.bean.RootBean;
 import com.microsoft.constant.Constant;
 import com.microsoft.dapter.TaskKsListAdapter;
 import com.microsoft.microsoftclient.R;
@@ -52,6 +53,8 @@ public class KsTaskActivity extends BaseActivity implements BGARefreshLayout.BGA
     private LoadMoreAdapter mLoadMoreAdapter;
     private TaskKsListAdapter mAdapter;
     private String mId;
+    private int mNetType = 1;
+    private String mTaskId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +92,7 @@ public class KsTaskActivity extends BaseActivity implements BGARefreshLayout.BGA
     }
 
     private void getKsList(String userId) {
+        mNetType = 1;
         WdApp.getRetrofit().takeKsTask(userId).enqueue(this);
     }
 
@@ -122,20 +126,28 @@ public class KsTaskActivity extends BaseActivity implements BGARefreshLayout.BGA
                     mLoadMoreAdapter.loadCompleted();
                     mBgaKsList.endRefreshing();
                 }
+            } else if (mNetType == 2) {
+                RootBean rootBean = GsonUtil.parseJsonWithGson(body, RootBean.class);
+                //TODO 不管是否领取过任务 都要进入详情
+                if (Constant.NET_STATUS.equals(rootBean.getCode())) {
+                }
+                Intent intent = new Intent(this, TaskDetailActivity.class);
+                intent.putExtra(Constant.TASK_ID, mTaskId);
+                intent.putExtra(Constant.TASK_FLAG, Constant.KS_FLAG);
+                startActivity(intent);
             }
         }
-
     }
+
 
     @Override
     public void onClick(View v) {
         int position = (int) v.getTag();
-        Intent intent = new Intent(this, TaskDetailActivity.class);
-        String taskId = mMessages.get(position).getTaskId();
-        intent.putExtra(Constant.TASK_ID, taskId);
-        intent.putExtra(Constant.TASK_FLAG, Constant.KS_FLAG);
-        startActivity(intent);
+        mTaskId = mMessages.get(position).getTaskId();
+        mNetType = 2;
+        WdApp.getRetrofit().takeTask(mId, mTaskId).enqueue(this);
     }
+
 
     @Override
     public void loadMore() {

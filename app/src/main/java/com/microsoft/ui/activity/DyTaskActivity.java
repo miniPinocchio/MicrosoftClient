@@ -52,7 +52,7 @@ public class DyTaskActivity extends BaseActivity implements Callback<String>, Vi
     private LoadMoreAdapter mLoadMoreAdapter;
     private TaskDyListAdapter mAdapter;
     private String mId;
-    private int mNetType;
+    private int mNetType = 1;
     private String mTaskId;
 
     @Override
